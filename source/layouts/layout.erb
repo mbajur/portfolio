@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "Middleman" %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex h-screen mx-auto" style="max-width: 1500px">
+      <aside class="z-20 hidden w-64 overflow-y-auto bg-white md:block flex-shrink-0 p-8">
+        <div class="mb-2 text-lg uppercase">
+          Mike <span class="font-semibold">Bajur</span>
+        </div>
+
+        <p class="text-slate-500 text-xs mb-5">Analog and digital photographer and videographer based in Krakow, Poland.</p>
+
+        <ul class="mb-8 font-light">
+          <li><%= link_to 'Lifestyle', '/', class: ('font-semibold' if current_page.url == '/') %></li>
+          <li><%= link_to 'Portraits', '/portraits', class: ('font-semibold' if current_page.url == '/portraits/') %></li>
+          <li><%= link_to 'Products', '/products', class: ('font-semibold' if current_page.url == '/products/') %></li>
+          <li><%= link_to 'Surf', '/surf', class: ('font-semibold' if current_page.url == '/surf/') %></li>
+        </ul>
+
+        <p class="text-slate-500 text-xs">
+          Contact:
+          <br/>
+          <a href="https://instagram.com/mbajur">@mbajur</a> / <a href="mailto:mbajur@gmail.com">mbajur@gmail.com</a>
+        </p>
+      </aside>
+
+      <div class="flex flex-col flex-1 w-full">
+        <main class="h-full overflow-y-auto">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.min.js" integrity="sha512-EqNNJuepkw5P9vxCml8eBk7C4Ld+4kAnvzOD/jG21rkxWPILGoQa5EvD62UieiJF0u3xoQrcVnce4i83VnYj/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+</html>
