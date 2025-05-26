@@ -90,8 +90,8 @@ end
 
 # Default credentials for ComfortableMediaSurfer::AccessControl::AdminAuthentication
 # YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMediaSurfer::AccessControl::AdminAuthentication.username = 'user'
-ComfortableMediaSurfer::AccessControl::AdminAuthentication.password = 'pass'
+ComfortableMediaSurfer::AccessControl::AdminAuthentication.username = ENV.fetch('AUTH_USERNAME', 'user')
+ComfortableMediaSurfer::AccessControl::AdminAuthentication.password = ENV.fetch('AUTH_PASSWORD', 'pass')
 
 # Uncomment this module and `config.admin_auth` above to use custom admin authentication
 # module ComfyAdminAuthentication
