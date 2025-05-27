@@ -8,7 +8,7 @@ ComfortableMediaSurfer.configure do |config|
   #   config.admin_base_controller = 'ApplicationController'
 
   # Controller that Comfy::Cms::BaseController will inherit from
-  #   config.public_base_controller = 'ApplicationController'
+  config.public_base_controller = 'ApplicationController'
 
   # Module responsible for authentication. You can replace it with your own.
   # It simply needs to have #authenticate method. See http_auth.rb for reference.
@@ -120,3 +120,12 @@ ComfortableMediaSurfer::AccessControl::AdminAuthentication.password = ENV.fetch(
 #     return true
 #   end
 # end
+
+Rails.application.configure do
+  config.to_prepare do
+    # Load application's model / class decorators
+    Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
+      Rails.configuration.cache_classes ? require(c) : load(c)
+    end
+  end
+end

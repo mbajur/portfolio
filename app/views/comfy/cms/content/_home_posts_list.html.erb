@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "posts-page-#{pagy.page}" do %>
+  <% posts.in_groups_of(2) do |group| %>
+    <div class="w-full mx-auto border border-dashed border-white/40 flex flex-wrap gap-4 mb-4">
+      <% group.each do |post| %>
+        <% next if post.nil? %>
+
+        <% thumb = post.fragments.where(identifier: 'thumb').first.attachments.first %>
+        <% meta = thumb.blob.metadata %>
+        <% width = meta['width'] %>
+        <% height = meta['height'] %>
+
+        <div style="--ratio: <%= width %> / <%= height %>;" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)]">
+          <%= image_tag thumb, width: width, height: height, class: 'block w-full h-auto', loading: "lazy" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
