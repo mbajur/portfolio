@@ -1,0 +1,22 @@
+<%
+  body = @cms_page.fragments.find_by(identifier: 'body')&.content
+%>
+
+<% if body.present? %>
+  <div class="mt-4
+              font-mono
+              text-sm
+
+              [&_p]:mb-4
+
+              [&_.editorjs-image]:px-20
+              [&_.editorjs-image]:mb-15
+
+              [&_.editorjs-gallery]:mb-15
+              [&_.editorjs-gallery]:grid
+              [&_.editorjs-gallery]:gap-15
+              [&_.editorjs-gallery]:px-10
+              [&_.editorjs-gallery]:grid-cols-2">
+    <%= render partial: 'comfy/cms/content/editorjs/renderer', locals: { content: JSON.parse(body) } %>
+  </div>
+<% end %>

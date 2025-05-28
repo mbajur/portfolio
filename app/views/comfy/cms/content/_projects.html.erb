@@ -1,0 +1,49 @@
+<%
+  @projects = Comfy::Cms::Page.find_by!(slug: 'projects').children
+%>
+
+<div class="grid grid-cols-12 font-mono text-sm gap-20 [&_p]:mb-4">
+  <div class="col-span-4">
+    <div class="sticky top-20">
+      <p>This is where I keep the stories that don’t always fit neatly into places on a map.</p>
+
+      <p>Beyond travel and location-based albums, these ongoing projects are more personal. Some follow my closest friends through everyday moments and shared memories. Others are quiet portraits of strangers, fleeting encounters that left something behind. A few trace the lives of my family—slow, intimate, evolving.</p>
+
+      <p>Together, they form a collection of moments I keep coming back to.
+      Not just where I’ve been, but who I’ve been with.</p>
+
+      <p>Not just places, but connections.</p>
+    </div>
+  </div>
+
+  <div class="col-span-8">
+    <div class="">
+      <% @projects.each do |project| %>
+        <% excerpt = project.fragments.where(identifier: 'excerpt').first %>
+        <% thumb = project.fragments.where(identifier: 'thumb').first.attachments.first %>
+        <% meta = thumb.blob.metadata %>
+        <% width = meta['width'] %>
+        <% height = meta['height'] %>
+
+        <div class="grid grid-cols-12 gap-6 items-center mb-10">
+          <div class="col-span-5">
+            <% if thumb %>
+              <a href="<%= project.url %>">
+                <%= image_tag thumb.variant(resize_to_fill: [258, 200]), loading: :lazy, class: 'w-full', width: 258, height: 200 %>
+              </a>
+            <% end %>
+          </div>
+
+          <div class="col-span-7 p-10">
+            <a href="<%= project.url %>" class="underline underline-offset-4 decoration-1 uppercase">
+              <%= project.label %>
+            </a>
+
+            <div class="mt-4">
+              <%= simple_format excerpt.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

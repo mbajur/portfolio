@@ -1,6 +1,13 @@
 GIT
+  remote: https://github.com/mbajur/comfy-editorjs.git
+  revision: 8c637f707ab6c852a4e297cbe59e7038481ae098
+  specs:
+    comfy-editorjs (0.1.0)
+      rails (>= 7.1.5.1)
+
+GIT
   remote: https://github.com/mbajur/comfy.git
-  revision: ad1194a40c4109ac96bb054bafb09b624bb91d92
+  revision: 55da2f54b9cc3652fde17cd3ee7c13094810f976
   branch: comfy
   specs:
     comfortable_media_surfer (3.1.1)
@@ -319,7 +326,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    websocket-driver (0.7.7)
+    websocket-driver (0.8.0)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -341,6 +348,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   comfortable_media_surfer (~> 3.1.0)!
+  comfy-editorjs!
   debug
   importmap-rails
   jbuilder

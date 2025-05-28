@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 
 //= link comfy_manifest.js
+//= link comfy_editorjs_manifest.js

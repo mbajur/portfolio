@@ -61,5 +61,7 @@ group :development do
 end
 
 gem "sassc-rails"
-gem "comfortable_media_surfer", "~> 3.1.0", github: 'mbajur/comfy', branch: 'comfy'
 gem "pagy"
+
+gem "comfortable_media_surfer", "~> 3.1.0", github: 'mbajur/comfy', branch: 'comfy'
+gem 'comfy-editorjs', github: 'mbajur/comfy-editorjs'

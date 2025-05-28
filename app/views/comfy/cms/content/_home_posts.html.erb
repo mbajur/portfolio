@@ -1,6 +1,7 @@
 <%
-  @pagy, @posts = pagy_countless(Comfy::Cms::Page.find_by!(slug: 'posts').children.reorder(position: :desc), limit: 2)
+  @pagy, @posts = pagy_countless(Comfy::Cms::Page.find_by!(slug: 'posts').children.reorder(position: :desc), limit: 6)
 %>
 
-<%= render 'comfy/cms/content/home_posts_list', pagy: @pagy, posts: @posts %>
-<%= render 'comfy/cms/content/home_posts_next_page', pagy: @pagy %>
+<div id="posts-list" data-turbo-permanent>
+  <%= render 'comfy/cms/content/home_posts_list', pagy: @pagy, posts: @posts %>
+</div>

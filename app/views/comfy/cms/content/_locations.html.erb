@@ -1,0 +1,36 @@
+<%
+  @locations = Comfy::Cms::Page.find_by!(slug: 'locations').children
+%>
+
+<div class="grid grid-cols-12 font-mono text-sm gap-20 [&_p]:mb-4">
+  <div class="col-span-4">
+    <div class="sticky top-20">
+      <p>These are the places where everything comes together—travel, friends, quiet streets, passing light. Most of these photos weren’t planned. They were taken while working remotely, exploring unfamiliar cities, or just walking with people I care about.</p>
+
+      <p>Each location is less about where I was, and more about what I felt there.
+      It’s not about landmarks—it’s about atmosphere, stillness, color, and memory.
+      Sometimes it’s just the way the light fell, or a moment that felt like something I’d dreamt before.</p>
+
+      <p>These albums are postcards from places that linger.</p>
+    </div>
+  </div>
+
+  <div class="col-span-8">
+    <div class="grid grid-cols-1 gap-4 font-mono text-sm">
+      <% @locations.each do |location| %>
+        <% thumb = location.fragments.where(identifier: 'thumb').first.attachments.first %>
+
+        <div class="col-span-1">
+          <a href="<%= location.url %>" class="relative text-white uppercase overflow-hidden h-80 block hover:italic">
+            <%= image_tag thumb, loading: :lazy, class: 'w-full' %>
+            <span class="absolute top-1/2 -translate-y-1/2 block text-center w-full">
+              <%= location.label %>
+              <br/>
+              42.8513795° N, -7.9821215° W
+            </span>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
