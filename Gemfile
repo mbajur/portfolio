@@ -62,6 +62,10 @@ end
 
 gem "sassc-rails"
 gem "pagy"
+gem 'positioning'
+gem "kaminari"
 
-gem "comfortable_media_surfer", "~> 3.1.0", github: 'mbajur/comfy', branch: 'comfy'
+gem "comfortable_media_surfer", github: 'mbajur/comfy'
 gem 'comfy-editorjs', github: 'mbajur/comfy-editorjs'
+
+gem "aws-sdk-s3", "~> 1.188"
