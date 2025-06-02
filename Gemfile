@@ -69,3 +69,7 @@ gem "comfortable_media_surfer", github: 'mbajur/comfy'
 gem 'comfy-editorjs', github: 'mbajur/comfy-editorjs'
 
 gem "aws-sdk-s3", "~> 1.188"
+
+gem "ruby-vips", "~> 2.2"
+
+gem "color", "~> 1.8"
