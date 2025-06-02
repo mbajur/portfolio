@@ -1,0 +1,7 @@
+<div id="<%= dom_id(block) %>" class="card">
+  <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+  <div class="card-body px-3 py-3">
+    <%= block.content&.html_safe %>
+  </div>
+</div>

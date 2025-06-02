@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-y-15">
+  <% block_area.blocks.where(parent_id: 0).each do |block| %>
+    <%= render block.to_partial_path(:public), block: block %>
+  <% end %>
+</div>

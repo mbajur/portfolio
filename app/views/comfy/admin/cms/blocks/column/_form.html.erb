@@ -1,0 +1,20 @@
+<div class="col" id="<%= dom_id(block) %>">
+  <div class="card">
+    <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+    <div class="card-body">
+      <%= form_with model: block, scope: :block, url: admin_comfy_cms_site_block_area_block_path(block), id: dom_id(block, :form) do |f| %>
+        <%= f.label :span %>
+        <%= f.number_field :span %>
+
+        <%= f.label :css_classes %>
+        <%= f.text_area :css_classes %>
+        <%= f.submit %>
+      <% end %>
+
+      <% if block.persisted? %>
+        <%= button_to 'cancel', admin_comfy_cms_site_block_area_block_path(block, format: :turbo_stream), method: :get %>
+      <% end %>
+    </div>
+  </div>
+</div>

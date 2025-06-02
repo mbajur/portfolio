@@ -1,0 +1,5 @@
+<div class="grid grid-cols-<%= block.columns %> gap-15 px-10">
+  <% block.children.each do |child_block| %>
+    <%= render child_block.to_partial_path(:public), block: child_block, parent: block %>
+  <% end %>
+</div>

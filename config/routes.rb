@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+    scope module: :admin, as: :admin do
+      namespace :cms, as: :comfy_cms, path: 'admin' do
+        resources :sites do
+          resources :block_areas, controller: '/admin/block_areas' do
+            resources :blocks, only: [:show, :create, :edit, :update, :destroy], controller: '/admin/blocks' do
+              post :move_up, on: :member
+              post :move_down, on: :member
+            end
+          end
+        end
+      end
+    end
+
   comfy_route :cms_admin, path: "/admin"
   # Ensure that this route is defined last
   comfy_route :cms, path: "/"

@@ -1,0 +1,14 @@
+<div class="card-footer p-0 dropdown">
+  <button class="btn btn-link text-secondary d-block w-100 small font-italic" data-bs-toggle="dropdown">
+    <%= tabler_icon :arrow_up, size: 12 %> Add block
+  </button>
+
+  <div class="dropdown-menu dropdown-menu-center" aria-labelledby="myDropdown">
+    <% block.accepted_child_types.each do |child_type| %>
+      <%= button_to "Add #{child_type}", admin_comfy_cms_site_block_area_blocks_path(
+        block_area_id: block.block_area_id,
+        block: { parent_id: block.id, type: child_type }
+      ), method: :post, class: 'dropdown-item' %>
+    <% end %>
+  </div>
+</div>

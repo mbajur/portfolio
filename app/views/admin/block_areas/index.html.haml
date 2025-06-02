@@ -1,0 +1,21 @@
+.page-header
+  = link_to 'New Block Area', new_admin_comfy_cms_site_block_area_path, class: 'btn btn-secondary float-right'
+  %h2= 'Block Areas'
+
+= paginate @block_areas, theme: 'comfy'
+
+%ul.list
+  - @block_areas.each do |block_area|
+    %li
+      .row
+        .col-md-8.item
+          .item-content
+            .item-title
+              = link_to block_area.label, admin_comfy_cms_site_block_area_path(@site, block_area)
+
+        .col-md-4.d-flex.align-items-center.justify-content-md-end
+          .btn-group.btn-group-sm
+            = link_to 'Edit', edit_admin_comfy_cms_site_block_area_path(@site, block_area), class: 'btn btn-outline-secondary'
+            = link_to 'Delete', admin_comfy_cms_site_block_area_path(@site, block_area), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+
+= paginate @block_areas, theme: 'comfy'

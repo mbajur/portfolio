@@ -1,0 +1,13 @@
+<% if @block.parent_id.positive? %>
+  <turbo-stream action="replace" target="<%= dom_id(@parent) %>">
+    <template>
+      <%= render partial: @parent.to_partial_path(:preview), formats: [:html], locals: { block: @parent } %>
+    </template>
+  </turbo-stream>
+<% else %>
+  <turbo-stream action="append" target="<%= dom_id(@block.block_area, :blocks) %>">
+    <template>
+      <%= render partial: @block.to_partial_path(:preview), formats: [:html], locals: { block: @block } %>
+    </template>
+  </turbo-stream>
+<% end %>

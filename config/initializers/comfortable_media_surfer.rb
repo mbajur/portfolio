@@ -123,6 +123,10 @@ ComfortableMediaSurfer::AccessControl::AdminAuthentication.password = ENV.fetch(
 
 Rails.application.configure do
   config.to_prepare do
+    ComfortableMediaSurfer::Content::Renderer.register_tag(
+      :block_area, ComfortableMediaSurfer::Content::Tags::BlockArea
+    )
+
     # Load application's model / class decorators
     Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
       Rails.configuration.cache_classes ? require(c) : load(c)

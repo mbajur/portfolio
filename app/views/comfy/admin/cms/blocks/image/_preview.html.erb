@@ -1,0 +1,11 @@
+<div class="card" id="<%= dom_id(block) %>">
+  <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+  <% if block.file.attached? %>
+    <%= image_tag block.file.variant(resize_to_fill: [400, 200]), style: 'max-width:100%', size: '400x200' %>
+  <% else %>
+    <div class="card-body">
+      <p class="text-muted mb-0 text-center small">No image attached</p>
+    </div>
+  <% end %>
+</div>

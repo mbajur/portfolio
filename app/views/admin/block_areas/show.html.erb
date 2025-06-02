@@ -1,0 +1,58 @@
+<style type='text/css'>
+  .card + .card {
+    margin-top: 1rem;
+  }
+
+  .block-gallery .card-body {
+    gap: 1rem;
+    display: grid;
+  }
+
+  .block-gallery .card + .card {
+    margin-top: 0;
+  }
+
+  .dropdown-menu-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border-color: #bbb;
+  }
+</style>
+
+<div class="page-header">
+  <h2>Block Area</h2>
+</div>
+
+<div id="<%= dom_id(@block_area, :blocks) %>">
+  <% @block_area.blocks.where(parent_id: 0).each do |block| %>
+    <%= render block.to_partial_path, block: block %>
+  <% end %>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-link text-secondary d-block w-100 small font-italic" data-bs-toggle="dropdown">
+    + Add block
+  </button>
+
+  <div class="dropdown-menu dropdown-menu-center" aria-labelledby="myDropdown">
+    <% Block::AVAILABLE_TYPES.each do |block_type| %>
+      <%= button_to "Add #{block_type}", admin_comfy_cms_site_block_area_blocks_path(
+        site: @cms_site,
+        block_area_id: @block_area.id,
+        block: { type: block_type, position: { before: nil } }
+      ), method: :post, class: 'dropdown-item' %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= button_to "+ Add row", admin_comfy_cms_site_block_area_blocks_path(
+  site: @cms_site,
+  block_area_id: @block_area.id,
+  block: { type: 'Blocks::Row', position: { before: nil } }
+), method: :post, class: 'btn btn-outline-secondary d-block w-100 mt-4' %>

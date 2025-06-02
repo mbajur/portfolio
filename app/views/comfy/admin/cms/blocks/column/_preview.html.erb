@@ -1,0 +1,13 @@
+<div class="col" id="<%= dom_id(block) %>">
+  <div class="card">
+    <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+    <div class="card-body">
+      <% block.children.each do |child_block| %>
+        <%= render child_block.to_partial_path, block: child_block %>
+      <% end %>
+    </div>
+
+    <%= render 'comfy/admin/cms/blocks/new_child_picker', block: block %>
+  </div>
+</div>

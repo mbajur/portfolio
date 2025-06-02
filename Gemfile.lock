@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/mbajur/comfy.git
-  revision: 8436d2616bb84b5006be31b8e5d8061a7ec20da2
+  revision: e9f5a62208f1e403cfd23d14324f2406e78a4101
   specs:
     comfortable_media_surfer (3.1.1)
       active_link_to (~> 1.0, >= 1.0.5)
@@ -129,7 +129,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.0)
+    bigdecimal (3.2.1)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)

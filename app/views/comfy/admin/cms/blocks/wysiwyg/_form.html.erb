@@ -1,0 +1,16 @@
+<div class="card" id="<%= dom_id(block) %>">
+  <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+  <div class="card-body p-2">
+    <%= form_with model: block, scope: :block, url: admin_comfy_cms_site_block_area_block_path(block), id: dom_id(block, :form) do |f| %>
+      <%= f.rich_text_area :content %>
+    <% end %>
+  </div>
+
+  <div class="card-footer d-flex">
+    <% if block.persisted? %>
+      <%= button_to 'Cancel', admin_comfy_cms_site_block_area_block_path(block, format: :turbo_stream), method: :get, class: 'btn btn-link btn-sm' %>
+    <% end %>
+    <button type="submit" class="btn btn-primary btn-sm ml-auto" form="<%= dom_id(block, :form) %>">Save</button>
+  </div>
+</div>

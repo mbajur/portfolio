@@ -1,0 +1,14 @@
+<div class="card block-gallery" id="<%= dom_id(block) %>">
+  <%= render 'comfy/admin/cms/blocks/header', block: block %>
+
+  <div class="card-body">
+    <%= form_with model: block, scope: :block, url: admin_comfy_cms_site_block_area_block_path(block), id: dom_id(block, :form) do |f| %>
+      <%= f.number_field :columns %>
+      <%= f.submit %>
+    <% end %>
+
+    <% if block.persisted? %>
+      <%= button_to 'cancel', admin_comfy_cms_site_block_area_block_path(block, format: :turbo_stream), method: :get %>
+    <% end %>
+  </div>
+</div>

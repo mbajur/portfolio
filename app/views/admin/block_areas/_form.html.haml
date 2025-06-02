@@ -1,0 +1,7 @@
+= form.text_field :label
+= form.hidden_field :site_id
+= form.text_field :identifier
+
+= form.form_actions do
+  = form.submit class: "btn btn-primary"
+  = link_to 'Cancel', admin_comfy_cms_site_block_areas_path, class: "btn btn-link"

@@ -1,0 +1,19 @@
+<div class="card-header d-flex align-items-center">
+  <h6 class="mb-0 text-muted small"><%= block.class %></h6>
+
+  <div class="ml-auto">
+    <div class="dropdown">
+      <a id="myDropdown" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="small text-muted">
+        <%= tabler_icon :settings, size: 15 %>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="myDropdown">
+        <%= button_to 'Move up', move_up_admin_comfy_cms_site_block_area_block_path(site: @cms_site, block_area_id: block.block_area_id, id: block.id, format: :turbo_stream), method: :post, class: 'dropdown-item' %>
+        <%= button_to 'Move down', move_down_admin_comfy_cms_site_block_area_block_path(site: @cms_site, block_area_id: block.block_area_id, id: block.id, format: :turbo_stream), method: :post, class: 'dropdown-item' %>
+        <div class="dropdown-divider"></div>
+        <%= button_to 'Edit', edit_admin_comfy_cms_site_block_area_block_path(site: @cms_site, block_area_id: block.block_area_id, id: block.id, format: :turbo_stream), method: :get, class: 'dropdown-item' %>
+        <div class="dropdown-divider"></div>
+        <%= button_to 'Delete', admin_comfy_cms_site_block_area_block_path(site: @cms_site, block_area_id: block.block_area_id, id: block.id), method: :delete, class: 'dropdown-item', data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+</div>
