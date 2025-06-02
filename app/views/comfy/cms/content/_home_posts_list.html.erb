@@ -9,7 +9,7 @@
         <% width = meta['width'] %>
         <% height = meta['height'] %>
 
-        <div style="--ratio: <%= width %> / <%= height %>;" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)]">
+        <div style="--ratio: <%= width %> / <%= height %>; background-color: <%= meta['dominant_color'] %>" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)]">
           <%= image_tag thumb, width: width, height: height, class: 'block w-full h-auto', loading: "lazy" %>
         </div>
       <% end %>
