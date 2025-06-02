@@ -5,3 +5,5 @@
 
 //= link comfy_manifest.js
 //= link comfy_editorjs_manifest.js
+
+//= link comfy/controllers/index.js
