@@ -21,7 +21,7 @@
   </head>
 
   <body class="bg-<% @cms_page.fragments.find_by(identifier: 'bg_class')&.content %>">
-    <nav class="flex w-full justify-between px-5 font-mono text-sm uppercase fixed top-6 [&_a]:hover:italic md:px-10">
+    <nav class="flex w-full justify-between px-5 font-mono text-sm uppercase fixed top-6 [&_a]:active:text-rose-500 [&_a]:hover:italic md:px-10">
       <a href="/" class="underline underline-offset-4 decoration-1">Mike Bajur</a>
       <%= active_link_to 'Locations', '/locations', class_active: 'text-rose-500' %>
       <%= active_link_to 'Projects', '/projects', class_active: 'text-rose-500' %>
