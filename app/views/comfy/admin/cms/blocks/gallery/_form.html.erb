@@ -3,7 +3,16 @@
 
   <div class="card-body">
     <%= form_with model: block, scope: :block, url: admin_comfy_cms_site_block_area_block_path(block), id: dom_id(block, :form) do |f| %>
-      <%= f.number_field :columns %>
+      <div>
+        <%= f.label :columns %>
+        <%= f.number_field :columns %>
+      </div>
+
+      <div>
+        <%= f.label :css_classes %>
+        <%= f.text_area :css_classes %>
+      </div>
+
       <%= f.submit %>
     <% end %>
 

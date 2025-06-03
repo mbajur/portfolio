@@ -1,4 +1,4 @@
-<div class="grid grid-cols-<%= block.columns %> gap-15 px-10">
+<div class="<%= block.css_classes %>">
   <% block.children.each do |child_block| %>
     <%= render child_block.to_partial_path(:public), block: child_block, parent: block %>
   <% end %>

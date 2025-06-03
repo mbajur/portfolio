@@ -1,6 +1,6 @@
 module Blocks
   class Row < Block
-    store :data, accessors: [:columns], coder: JSON
+    store :data, accessors: [:columns, :css_classes], coder: JSON
 
     def accepted_child_types
       [Blocks::Column]

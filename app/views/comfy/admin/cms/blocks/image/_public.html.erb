@@ -1,4 +1,4 @@
-<div class="<%= "px-30" if block.ancestors.size == 0 %>">
+<div class="<%= "md:px-30" if block.ancestors.size == 0 %>">
   <% if block.file.attached? %>
     <% metadata = block.file.metadata %>
     <%= image_tag url_for(block.file.variant(resize_to_fit: [1200, nil])),

@@ -1,6 +1,6 @@
 module Blocks
   class Gallery < Block
-    store :data, accessors: [:columns], coder: JSON
+    store :data, accessors: [:columns, :css_classes], coder: JSON
 
     def self.can_be_root?
       false
