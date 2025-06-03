@@ -8,8 +8,6 @@ class BlockArea < ActiveRecord::Base
 
   # -- Callbacks ---------------------------------------------------------------
 
-  after_save :clear_pages_content_cache
-
   # -- Validations -------------------------------------------------------------
   validates :site_id,
     presence: true
