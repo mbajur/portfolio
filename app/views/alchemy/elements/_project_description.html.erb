@@ -1,0 +1,5 @@
+<%- cache(project_description) do -%>
+  <%= element_view_for(project_description, tag: "div", class: "font-mono text-sm [&_p]:mb-5") do |el| -%>
+    <%= el.render :copy, {}, class: "" %>
+  <%- end -%>
+<%- end -%>

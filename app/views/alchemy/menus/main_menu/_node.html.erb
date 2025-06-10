@@ -1,0 +1,9 @@
+<% cache [node, @page, Alchemy::Current.preview_page?] do %>
+  <%= link_to_if node.url,
+    node.name,
+    Alchemy::Current.preview_page? ? 'javascript: void(0)' : node.url,
+    class: [current_page?(node.url) ? 'text-rose-500' : nil].compact,
+    title: node.title,
+    target: node.external? ? '_blank' : nil,
+    rel: node.nofollow? ? 'nofollow' : nil %>
+<% end %>

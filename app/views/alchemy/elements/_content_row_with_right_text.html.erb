@@ -1,0 +1,11 @@
+<%- cache(content_row_with_right_text) do -%>
+  <%= element_view_for(content_row_with_right_text, tag: "div", class: "grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-15 items-center md:px-10") do |el| -%>
+    <div class="col-span-1">
+      <%= el.render :image %>
+    </div>
+
+    <div class="col-span-1 font-mono text-sm md:px-15">
+      <%= el.render :copy %>
+    </div>
+  <%- end -%>
+<%- end -%>

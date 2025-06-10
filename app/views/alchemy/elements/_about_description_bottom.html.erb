@@ -1,0 +1,5 @@
+<%- cache(about_description_bottom) do -%>
+  <%= element_view_for(about_description_bottom, tag: "div", class: "font-mono text-sm flex flex-col mt-5 gap-y-5 md:gap-y-8") do |el| -%>
+    <%= el.render :copy, {}, class: "" %>
+  <%- end -%>
+<%- end -%>

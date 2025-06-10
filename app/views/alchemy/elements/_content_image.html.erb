@@ -1,0 +1,10 @@
+<%- cache(content_image) do -%>
+  <%= element_view_for(content_image, tag: "div") do |el| -%>
+    <% related_object = content_image.ingredients.first.related_object %>
+
+    <img src="<%= related_object&.url %>"
+         loading="lazy"
+         width="<%= related_object.image_file_width %>"
+         height="<%= related_object.image_file_height %>" />
+  <%- end -%>
+<%- end -%>

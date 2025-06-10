@@ -1,0 +1,22 @@
+<div class="grid grid-cols-1 md:grid-cols-12 gap-x-20">
+  <div class="col-span-4">
+    <%= render @page.fixed_elements.named(:page_description), sticky: true %>
+  </div>
+
+  <div class="col-span-8">
+    <div class="grid grid-cols-1 gap-4 font-mono text-sm">
+      <% @page.children.each do |location| %>
+        <div class="col-span-1">
+          <a href="<%= location.urlname %>" class="relative text-white uppercase overflow-hidden h-80 block hover:italic">
+            <%= image_tag location.fixed_elements.find_by(name: :location_thumb).ingredients.find_by(role: :picture).picture.url(size: '353x274', crop: true), loading: :lazy, class: 'w-full' %>
+            <span class="absolute top-1/2 -translate-y-1/2 block text-center w-full">
+              <%= location.title %>
+              <br/>
+              42.8513795° N, -7.9821215° W
+            </span>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

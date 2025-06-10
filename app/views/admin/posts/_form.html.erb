@@ -1,0 +1,5 @@
+<%= alchemy_form_for resource_instance_variable, url: resource_path(resource_instance_variable, search_filter_params) do |f| %>
+  <%= f.file_field :image %>
+
+  <%= f.submit Alchemy.t(:save) %>
+<% end %>

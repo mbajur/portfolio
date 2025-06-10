@@ -1,0 +1,5 @@
+<%- cache(page_description) do -%>
+  <%= element_view_for(page_description, tag: "div", class: "#{'sticky top-20' if local_assigns[:sticky]} [&_p]:mb-5 font-mono text-sm") do |el| -%>
+    <%= el.render :copy, {}, class: "" %>
+  <%- end -%>
+<%- end -%>

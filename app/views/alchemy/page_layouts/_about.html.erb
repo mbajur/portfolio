@@ -1,0 +1,20 @@
+<% fixed_elements = @page.fixed_elements %>
+<% desc_left = fixed_elements.find { |fe| fe.name == 'about_description_left' } %>
+<% desc_right = fixed_elements.find { |fe| fe.name == 'about_description_right' } %>
+<% desc_bottom = fixed_elements.find { |fe| fe.name == 'about_description_bottom' } %>
+<% image = fixed_elements.find { |fe| fe.name == 'about_photo' } %>
+
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 h-screen">
+  <div class="col-span-1 md:col-span-6 order-2 md:order-1">
+    <div class="grid grid-cols-1 md:grid-cols-2 font-mono text-sm gap-y-5 md:gap-y-0 gap-x-10">
+      <%= render_element(desc_left) %>
+      <%= render_element(desc_right) %>
+    </div>
+
+    <%= render_element(desc_bottom) %>
+  </div>
+
+  <div class="col-span-1 md:col-span-6 order-1 md:order-2">
+    <%= render_element(image) %>
+  </div>
+</div>

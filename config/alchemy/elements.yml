@@ -1,0 +1,108 @@
+# == In this configuration, you set up Alchemy's element layouts.
+#
+# For further information please see http://guides.alchemy-cms.com/elements.html
+
+- name: article
+  hint: true
+  unique: true
+  ingredients:
+    - role: headline
+      type: Headline
+      default: :article_headline
+      hint: true
+    - role: picture
+      type: Picture
+      hint: true
+      settings:
+        size: 1200x600
+    - role: text
+      type: Richtext
+      default: :article_text
+      hint: true
+- name: page_description
+  unique: true
+  fixed: true
+  ingredients:
+    - role: copy
+      type: Richtext
+      default: :description_text
+      hint: true
+- name: about_description_left
+  unique: true
+  fixed: true
+  ingredients:
+    - role: copy
+      type: Richtext
+      default: :description_text
+      hint: true
+- name: about_description_right
+  unique: true
+  fixed: true
+  ingredients:
+    - role: copy
+      type: Richtext
+      default: :description_text
+      hint: true
+- name: about_description_bottom
+  unique: true
+  fixed: true
+  ingredients:
+    - role: copy
+      type: Richtext
+      default: :description_text
+      hint: true
+- name: about_picture
+  unique: false
+  fixed: true
+  ingredients:
+    - role: photo
+      type: Picture
+      hint: true
+      settings:
+        size: 652x536
+- name: about_photo
+  unique: true
+  fixed: true
+  ingredients:
+    - role: photo
+      type: Picture
+      hint: true
+      settings:
+        size: 652x536
+- name: project_description
+  unique: true
+  fixed: true
+  ingredients:
+    - role: copy
+      type: Richtext
+    - role: excerpt
+      type: Richtext
+- name: project_thumb
+  unique: true
+  fixed: true
+  ingredients:
+    - role: picture
+      type: Picture
+      settings:
+        size: 652x536
+- name: location_thumb
+  unique: true
+  fixed: true
+  ingredients:
+    - role: picture
+      type: Picture
+      settings:
+        size: 652x536
+- name: content_gallery
+  nestable_elements:
+    - content_image
+- name: content_row_with_right_text
+  ingredients:
+    - role: image
+      type: Picture
+    - role: copy
+      type: Richtext
+- name: content_image
+  ingredients:
+    - role: image
+      type: Picture

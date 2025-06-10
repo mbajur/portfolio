@@ -1,0 +1,5 @@
+<%- cache(about_photo) do -%>
+  <%= element_view_for(about_photo, tag: "div", class: "h-90 md:h-full") do |el| -%>
+    <div class="w-full h-full" style="background-size: cover; background-image: url(<%= about_photo.ingredients.first.picture.url %>); background-color: #000"></div>
+  <%- end -%>
+<%- end -%>

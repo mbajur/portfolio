@@ -1,0 +1,26 @@
+# == This file defines the page layouts for new pages.
+#
+# For further information please see https://guides.alchemy-cms.com/pages.html
+
+- name: index
+  unique: true
+  elements: [page_description]
+  autogenerate: [page_description]
+- name: locations
+  unique: true
+  elements: [page_description]
+  autogenerate: [page_description]
+- name: location
+  elements: [location_thumb, content_gallery, content_row_with_right_text]
+  autogenerate: [location_thumb]
+- name: projects
+  unique: true
+  elements: [page_description]
+  autogenerate: [page_description]
+- name: project
+  elements: [project_description, project_thumb, content_gallery, content_row_with_right_text]
+  autogenerate: [project_description, project_thumb]
+- name: about
+  unique: true
+  elements: [about_description_left, about_description_right, about_description_bottom, about_photo]
+  autogenerate: [about_description_left, about_description_right, about_description_bottom, about_photo]

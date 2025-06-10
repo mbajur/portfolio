@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "posts-page-#{posts.current_page}" do %>
+  <% posts.in_groups_of(2) do |group| %>
+    <div class="w-full mx-auto border border-dashed border-white/40 flex flex-wrap gap-4 mb-4">
+      <% group.each do |post| %>
+        <% next if post.nil? %>
+
+        <% thumb = post.image %>
+        <% meta = thumb.blob.metadata %>
+        <% width = meta['width'] %>
+        <% height = meta['height'] %>
+        <% resize_to_fill = width > height ? [900, nil] : [nil, 750] %>
+
+        <div style="--ratio: <%= width %> / <%= height %>; background-color: <%= meta['dominant_color'] %>" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)]">
+          <%= image_tag main_app.url_for(thumb.variant(resize_to_fit: resize_to_fill)), width: width, height: height, class: 'block w-full h-auto', loading: :lazy %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render 'alchemy/posts/list_next_page', posts: posts %>
+<% end %>

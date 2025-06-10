@@ -1,0 +1,10 @@
+<%= render Alchemy::Admin::Resource::Table.new(resources_instance_variable, query: @query, search_filter_params: search_filter_params, icon: local_assigns[:icon]) do |table| %>
+  <% table.icon_column "translate-2", style: false %>
+  <% table.column :image do |post| %>
+    <%= image_tag post.image.variant(resize_to_fill: [100, 100]) %>
+  <% end %>
+  <% table.delete_button %>
+  <% table.edit_button %>
+<% end %>
+
+<%= paginate resources_instance_variable, scope: resource_url_proxy, theme: 'alchemy' %>

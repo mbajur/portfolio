@@ -1,0 +1,12 @@
+<%- cache(content_gallery) do -%>
+  <%= element_view_for(content_gallery, tag: "div", class: "grid grid-cols-2 gap-5 md:gap-15 items-center md:px-10") do |el| -%>
+    <% one_in_row = content_gallery.nested_elements.count == 1 %>
+    <% span = one_in_row ? 2 : 1 %>
+
+    <% content_gallery.nested_elements.each do |element| %>
+      <div class="col-span-<%= span %> <%= 'px-0 md:px-30' if one_in_row %>">
+        <%= render element %>
+      </div>
+    <% end %>
+  <%- end -%>
+<%- end -%>

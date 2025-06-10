@@ -1,0 +1,10 @@
+<% if posts.next_page.present? %>
+  <%= turbo_frame_tag(
+      "posts-page-#{posts.next_page}",
+      loading: :lazy,
+      src: url_for(page: posts.next_page),
+      target: "_top"
+    ) do %>
+    Loading...
+  <% end %>
+<% end %>
