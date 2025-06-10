@@ -40,6 +40,7 @@ module Portfolio
     config.generators.system_tests = nil
 
     config.hosts << "portfolio.lvh.me:3000"
+    config.hosts << "portfolio-svhk.onrender.com"
 
     config.to_prepare do
       Dir.glob(Rails.root.join('app', '**', '*_extension.rb')) do |f|
