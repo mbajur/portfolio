@@ -1,10 +1,13 @@
 <%- cache(content_gallery) do -%>
-  <%= element_view_for(content_gallery, tag: "div", class: "grid grid-cols-2 gap-5 md:gap-15 items-center md:px-10") do |el| -%>
+  <% background_color = content_gallery.ingredients.find_by(role: :background_color)&.value&.presence %>
+  <% full_width = content_gallery.ingredients.find_by(role: :full_width)&.value %>
+
+  <%= element_view_for(content_gallery, tag: "div", class: "grid grid-cols-2 gap-5 md:gap-15 items-center px-5 md:px-10 #{'py-5 md:py-15' if background_color} #{'md:mx-10' unless full_width}", style: "background-color: #{background_color}") do |el| -%>
     <% one_in_row = content_gallery.nested_elements.count == 1 %>
     <% span = one_in_row ? 2 : 1 %>
 
     <% content_gallery.nested_elements.each do |element| %>
-      <div class="col-span-<%= span %> <%= 'px-0 md:px-30' if one_in_row %>">
+      <div class="col-span-<%= span %> <%= 'px-0 md:px-40' if one_in_row %>">
         <%= render element %>
       </div>
     <% end %>

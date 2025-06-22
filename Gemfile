@@ -60,10 +60,13 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem 'alchemy-dragonfly-s3', github: 'AlchemyCMS/alchemy-dragonfly-s3'
+end
+
 
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms"
 gem "alchemy-devise", github: 'AlchemyCMS/alchemy-devise'
-gem 'alchemy-dragonfly-s3', github: 'AlchemyCMS/alchemy-dragonfly-s3'
 
 gem 'image_processing', '~> 1.2'
 
