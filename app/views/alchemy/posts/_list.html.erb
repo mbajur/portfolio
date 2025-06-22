@@ -10,7 +10,7 @@
         <% height = meta['height'] %>
         <% resize_to_fill = width > height ? [900, nil] : [nil, 750] %>
 
-        <div style="--ratio: <%= width %> / <%= height %>; background-color: <%= meta['dominant_color'] %>" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)]">
+        <div style="--ratio: <%= width %> / <%= height %>;" class="flex-[999_max(calc((30rem_-_100%)_*_999),_0px)] aspect-[calc(<%= width %>/<%= height %>)] grow-[calc(<%= width %>/<%= height %>)] bg-gray-50">
           <%= image_tag main_app.url_for(thumb.variant(resize_to_fit: resize_to_fill)), width: width, height: height, class: 'block w-full h-auto', loading: :lazy %>
         </div>
       <% end %>

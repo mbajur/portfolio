@@ -2,25 +2,27 @@
   @posts = Post.all.page(params[:page]).per(4).without_count
 %>
 
-<div class="flex font-mono items-center mb-5">
-  <div class="grid-col-2
-              max-w-2xl
-              text-sm
-              [&_a]:underline
-              [&_a]:underline-offset-4
-              [&_a]:decoration-1
-              [&_span]:text-gray-500
-              [&_s]:text-gray-500
-              [&_s]:no-underline">
-    <%= render @page.fixed_elements.named(:page_description) %>
+<div class="p-5 mt-15 md:mt-10 md:p-10">
+  <div class="flex font-mono items-center mb-5">
+    <div class="grid-col-2
+                max-w-2xl
+                text-sm
+                [&_a]:underline
+                [&_a]:underline-offset-4
+                [&_a]:decoration-1
+                [&_span]:text-gray-500
+                [&_s]:text-gray-500
+                [&_s]:no-underline">
+      <%= render @page.fixed_elements.named(:page_description) %>
+    </div>
+
+    <div class="grid-col-2 align-right ml-auto text-gray-500 hidden">
+      <span class="text-right block text-xs">And btw, it's <i>12 Mar 2025</i></span>
+      <span class="italic block text-right">22:20:49</span>
+    </div>
   </div>
 
-  <div class="grid-col-2 align-right ml-auto text-gray-500 hidden">
-    <span class="text-right block text-xs">And btw, it's <i>12 Mar 2025</i></span>
-    <span class="italic block text-right">22:20:49</span>
+  <div id="posts-list" data-turbo-permanent>
+    <%= render 'alchemy/posts/list', posts: @posts %>
   </div>
-</div>
-
-<div id="posts-list" data-turbo-permanent>
-  <%= render 'alchemy/posts/list', posts: @posts %>
 </div>

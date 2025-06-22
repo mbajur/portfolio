@@ -96,6 +96,11 @@
 - name: content_gallery
   nestable_elements:
     - content_image
+  ingredients:
+    - role: background_color
+      type: text
+    - role: full_width
+      type: boolean
 - name: content_row_with_right_text
   ingredients:
     - role: image
